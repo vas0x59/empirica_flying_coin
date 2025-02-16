@@ -1,3 +1,5 @@
 openfoam_cases/*.zip
 .vscode
 *.stl
+openfoam_cases/case1_calcs
+openfoam_cases/case1/openfoam_xz_view.png

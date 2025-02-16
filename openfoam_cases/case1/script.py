@@ -21,7 +21,7 @@ pressure_display.LookupTable.ApplyPreset("Turbo", True)
 pressure_display.LookupTable.RescaleTransferFunction(-10, 10)
 # Create a Line Source for StreamTracer in XZ-plane
 line_source = Line()
-line_source.Point1 = [-0.022, 0, 0]  # Start point in XZ-plane
+line_source.Point1 = [-0.022, 0, 0.001]  # Start point in XZ-plane
 line_source.Point2 = [-0.022, 0, 0.035]    # End point in XZ-plane
 line_source.Resolution = 15  # Number of seed points along the line
 
@@ -51,11 +51,13 @@ renderView = GetActiveView()
 # Enable axes grid
 renderView.AxesGrid = 'Grid Axes 3D Actor'
 renderView.AxesGrid.Visibility = 1  # Show the grid
-
-renderView.AxesGrid.XLabelFontSize = 14
-renderView.AxesGrid.YLabelFontSize = 14
-renderView.AxesGrid.ZLabelFontSize = 14
-resolution = [1920, 1080]
+renderView.AxesGrid.XLabelFontSize = 21
+renderView.AxesGrid.YLabelFontSize = 21
+renderView.AxesGrid.ZLabelFontSize = 21
+renderView.AxesGrid.XTitleFontSize = 24
+renderView.AxesGrid.YTitleFontSize = 24
+renderView.AxesGrid.ZTitleFontSize = 24
+resolution = [600, 400]
 renderView.ViewSize = resolution 
 
 # Set up rendering
@@ -63,14 +65,14 @@ renderView.ViewSize = resolution
 
 # Adjust camera for 2D XZ view (flip X-axis)
 camera = GetActiveCamera()
-camera.SetPosition(0.0, -0.08, 0.01)  # Position the camera above Y-axis to look at XZ-plane
+camera.SetPosition(0.0, -0.09, 0.01)  # Position the camera above Y-axis to look at XZ-plane
 camera.SetFocalPoint(0.0, 0, 0.01)  # Focus on the center
 camera.SetViewUp(0, 0, 1)  # Ensure Z is upwards
 # camera.Yaw(180)  # Flip the X-axis
 camera.OrthogonalizeViewUp()  # Enforce a 2D orthographic projection
 
 # Save the rendered visualization as a PNG
-SaveScreenshot("openfoam_xz_view.png", ImageResolution=resolution)
+SaveScreenshot("openfoam_xz_view.png", ImageResolution=[resolution[0]*2, resolution[1]*2])
 # SaveScreenshot("output.pdf", renderView, ImageResolution=[1920, 1080], TransparentBackground=1)
 print("PNG image saved as 'openfoam_xz_view.png'")
 

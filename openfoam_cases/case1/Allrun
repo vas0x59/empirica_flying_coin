@@ -9,3 +9,5 @@ runParallel potentialFoam
 runParallel $(getApplication)
 
 runApplication reconstructPar -latestTime
+
+pvpython script.py

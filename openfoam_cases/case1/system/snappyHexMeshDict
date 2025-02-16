@@ -37,8 +37,8 @@ geometry
     refinementBox
     {
         type searchableBox;
-        min (-0.03 -0.03 0.0);
-        max ( 0.03  0.03 0.05);
+        min (-0.06 -0.03 0.0);
+        max ( 0.05  0.03 0.03);
     }
 }
 // Settings for the castellatedMesh generation.
@@ -57,7 +57,7 @@ castellatedMeshControls
     // Note that this is the number of cells before removing the part which
     // is not 'visible' from the keepPoint. The final number of cells might
     // actually be a lot less.
-    maxGlobalCells 700000;
+    maxGlobalCells 500000;
 
     // The surface refinement loop might spend lots of iterations refining just a
     // few cells. This setting will cause refinement to stop if <= minimumRefine
@@ -69,7 +69,7 @@ castellatedMeshControls
     // (since balancing is quite expensive)
     // Expressed as fraction of perfect balance (= overall number of cells /
     // nProcs). 0=balance always.
-    maxLoadUnbalance 0.02;
+    maxLoadUnbalance 1;
 
 
     // Number of buffer layers between different levels.
@@ -113,7 +113,7 @@ castellatedMeshControls
     }
 
     // Resolve sharp angles
-    resolveFeatureAngle 60;
+    resolveFeatureAngle 70;
 
 
     // Region-wise refinement
@@ -147,7 +147,7 @@ castellatedMeshControls
     // section reachable from the insidePoint is kept.
     // NOTE: This point should never be on a face, always inside a cell, even
     // after refinement.
-    insidePoint (0 0 0.1);
+    insidePoint (0 0 0.08);
 
 
     // Whether any faceZones (as specified in the refinementSurfaces)
@@ -171,12 +171,12 @@ snapControls
     tolerance  4;
 
     //- Number of mesh displacement relaxation iterations.
-    nSolveIter 30;
+    nSolveIter 25;
      explicitFeatureSnap  true;
 
     //- Maximum number of snapping relaxation iterations. Should stop
     //  before upon reaching a correct mesh.
-    nRelaxIter 5;
+    nRelaxIter 7;
 }
 
 
@@ -209,7 +209,7 @@ addLayersControls
     // Minimum thickness of cell layer. If for any reason layer
     // cannot be above minThickness do not add layer.
     // Relative to undistorted size of cell outside layer.
-    minThickness 0.1;
+    minThickness 0.001;
 
     // If points get not extruded do nGrow layers of connected faces that are
     // also not grown. This helps convergence of the layer addition process
@@ -254,7 +254,7 @@ addLayersControls
     nBufferCellsNoExtrude 0;
 
     // Overall max number of layer addition iterations
-    nLayerIter 50;
+    nLayerIter 40;
 }
 
 
