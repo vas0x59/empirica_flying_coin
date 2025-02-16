@@ -38,7 +38,7 @@ geometry
     {
         type searchableBox;
         min (-0.06 -0.03 0.0);
-        max ( 0.05  0.03 0.03);
+        max ( 0.04  0.03 0.03);
     }
 }
 // Settings for the castellatedMesh generation.
@@ -50,7 +50,7 @@ castellatedMeshControls
     // If local number of cells is >= maxLocalCells on any processor
     // switches from from refinement followed by balancing
     // (current method) to (weighted) balancing before refinement.
-    maxLocalCells 100000;
+    maxLocalCells 60000;
 
     // Overall cell limit (approximately). Refinement will stop immediately
     // upon reaching this number so a refinement level might not complete.

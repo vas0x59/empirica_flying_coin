@@ -1,1 +1,1 @@
-convert -delay 10 -loop 0 */*.png output.gif
+convert -delay 10 -loop 0 case1_calcs/*/*.png output.gif

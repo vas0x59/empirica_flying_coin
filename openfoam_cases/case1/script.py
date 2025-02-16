@@ -43,7 +43,7 @@ streamline_display.ColorArrayName = "SolidColor"
 streamline_display.AmbientColor = [0, 0, 0]  # Black color
 streamline_display.DiffuseColor = [0, 0, 0]  # Black color
 streamline_display.DisableLighting = 0  # Disable lighting
-streamline_display.LineWidth = 5
+streamline_display.LineWidth = 3
 streamline_display.RenderLinesAsTubes=True
 
 renderView = GetActiveView()
