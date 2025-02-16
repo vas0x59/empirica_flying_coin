@@ -1,0 +1,3 @@
+openfoam_cases/*.zip
+.vscode
+*.stl
